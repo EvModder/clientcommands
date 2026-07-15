@@ -2,15 +2,15 @@
   "schemaVersion": 1,
   "id": "clientcommands",
   "name": "Client Commands",
-  "description": "Useful client-side commands",
+  "description": "Useful client-side commands; this fork does not require server opt-in.",
   "version": "${version}",
-  "environment": "*",
+  "environment": "client",
   "license": "LGPL-3.0-or-later",
   "icon": "assets/clientcommands/icon.png",
   "contact": {
-    "homepage": "https://earthcomputer.net/",
-    "issues": "https://github.com/Earthcomputer/clientcommands/issues",
-    "sources": "https://github.com/Earthcomputer/clientcommands"
+    "homepage": "https://github.com/EvModder/clientcommands",
+    "issues": "https://github.com/EvModder/clientcommands/issues",
+    "sources": "https://github.com/EvModder/clientcommands"
   },
   "authors": [
     "Earthcomputer"
@@ -23,9 +23,6 @@
   "entrypoints": {
     "client": [
       "net.earthcomputer.clientcommands.ClientCommands"
-    ],
-    "main": [
-      "net.earthcomputer.clientcommands.server.ClientCommandsServer"
     ]
   },
   "depends": {
@@ -42,10 +39,5 @@
       "environment": "client"
     }
   ],
-  "accessWidener": "clientcommands.aw",
-  "custom": {
-    "modmenu": {
-      "update_checker": true
-    }
-  }
+  "accessWidener": "clientcommands.aw"
 }

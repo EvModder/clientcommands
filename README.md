@@ -1,6 +1,8 @@
 # clientcommands
 Adds several useful client-side commands to Minecraft
 
+This fork removes the server opt-in requirement introduced in upstream 2.15.
+
 ## Social
 Discord: https://discord.gg/Jg7Bun7
 Patreon: https://www.patreon.com/earthcomputer
@@ -13,7 +15,7 @@ Patreon: https://www.patreon.com/earthcomputer
      or an old version of Minecraft.
 1. Download [Fabric API](https://minecraft.curseforge.com/projects/fabric)
    and move it to the mods folder (`.minecraft/mods`).
-1. Download clientcommands from the [releases page](https://github.com/Earthcomputer/clientcommands/releases) or from [Modrinth](https://modrinth.com/mod/client-commands)
+1. Download this fork from the [releases page](https://github.com/EvModder/clientcommands/releases)
    and move it to the mods folder (`.minecraft/mods`).
 
 ## Contributing
