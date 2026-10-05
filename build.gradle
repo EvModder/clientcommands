@@ -111,15 +111,8 @@ processResources {
 	inputs.property "version", project.version
 	inputs.property "mcversion", project.minecraft_version_dependency
 
-	duplicatesStrategy DuplicatesStrategy.WARN
-
-	from(sourceSets.main.resources.srcDirs) {
-		include "fabric.mod.json"
+	filesMatching("fabric.mod.json") {
 		expand "version": project.version, "mcversion": project.minecraft_version_dependency
-	}
-
-	from(sourceSets.main.resources.srcDirs) {
-		exclude "fabric.mod.json"
 	}
 
 	from generateBuildInfo
@@ -180,15 +173,16 @@ modrinth {
 		embedded.project 'simplewaypoints'
 	}
 }
-tasks.modrinth.onlyIf {
-	!changelogText.isBlank()
+// This fork is distributed on GitHub, never through the upstream Modrinth project.
+tasks.matching { it.name.startsWith('modrinth') }.configureEach {
+	enabled = false
 }
 
 githubRelease {
 	token(project.hasProperty('githubKey') ? project.githubKey : (System.getenv("GITHUB_TOKEN") ?: ''))
-	owner 'Earthcomputer'
+	owner 'EvModder'
 	repo 'clientcommands'
-	targetCommitish 'fabric'
+	targetCommitish providers.exec { commandLine 'git', 'rev-parse', 'HEAD' }.standardOutput.asText.get().trim()
 	releaseName "Version ${project.version} for Minecraft ${project.minecraft_version_list_presentable}"
 	body changelogText
 	releaseAssets jar.outputs
