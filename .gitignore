@@ -26,3 +26,4 @@ run/
 logs/
 
 /changelog.txt
+.DS_Store

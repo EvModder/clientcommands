@@ -45,6 +45,11 @@ loom {
 	accessWidenerPath = file('src/main/resources/clientcommands.aw')
 }
 
+loom.runs.configureEach {
+    jvmArguments.add("-enableassertions")
+    systemProperties.put("fabric.loom.suppressNarratorError", "true")
+}
+
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
@@ -94,6 +99,8 @@ jar {
 	}
 
 	from("LICENSE")
+
+	manifest.attributes 'Main-Class': 'net.earthcomputer.clientcommands.DoubleClickMain'
 }
 
 tasks.register('generateBuildInfo', GenerateBuildInfoTask) {
