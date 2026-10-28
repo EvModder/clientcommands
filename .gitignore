@@ -3,6 +3,7 @@
 .gradle/
 build/
 out/
+/gradlew.bat
 
 # idea
 
@@ -22,8 +23,14 @@ bin/
 
 # fabric
 
+.fabric/
+mods/
 run/
 logs/
+
+# local AI/tooling resources
+
+/work_files/
 
 /changelog.txt
 .DS_Store
